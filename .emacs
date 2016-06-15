@@ -5,10 +5,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-(load-theme 'solarized t)
-(set-frame-parameter nil 'background-mode 'dark)
-
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
 	     '("melpa" . "https://stable.melpa.org/packages/"))
@@ -142,3 +138,7 @@
 (require 'win-switch)
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+(set-frame-parameter nil 'background-mode 'dark)
+(enable-theme 'solarized)
