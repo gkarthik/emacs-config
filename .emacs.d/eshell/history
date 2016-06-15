@@ -1,0 +1,8 @@
+ls
+clear
+ls
+hpcnew
+ssh gkarthik@garibaldi.scripps.edu
+clear
+ls
+exit
