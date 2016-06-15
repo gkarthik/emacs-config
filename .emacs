@@ -1,3 +1,5 @@
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
 (global-linum-mode t)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
