@@ -138,3 +138,7 @@
 
 (require 'wrap-region)
 (setq wrap-region-mode t)
+
+(require 'win-switch)
+(win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
+
