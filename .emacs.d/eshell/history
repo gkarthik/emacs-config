@@ -6,3 +6,11 @@ ssh gkarthik@garibaldi.scripps.edu
 clear
 ls
 exit
+ls
+cd analysis/
+ls
+cd
+clear
+ls
+ls
+exit

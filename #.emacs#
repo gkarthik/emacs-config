@@ -146,3 +146,4 @@
 (add-to-list 'load-path "~/.emacs.d/shell-current-directory/")
 (require 'shell-current-directory)
 (put 'erase-buffer 'disabled nil)
+
