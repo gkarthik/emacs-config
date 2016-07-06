@@ -146,3 +146,14 @@
 (add-to-list 'load-path "~/.emacs.d/shell-current-directory/")
 (require 'shell-current-directory)
 (put 'erase-buffer 'disabled nil)
+
+;; Org Mode configuration
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/org/work.org"
+                             "~/org/personal.org"))
+
+;; Magit shortcuts				;
+(global-set-key (kbd "C-x g") 'magit-status)

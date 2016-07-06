@@ -1,6 +1,27 @@
-;; -*- emacs-lisp -*- <16/06/26 16:46:56 /Users/karthik/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/07/01 16:59:09 /Users/karthik/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
 ((["ssh" "gkarthik" "garibaldi.scripps.edu" nil nil]
+  ("locale" "LC_ALL=en_US.utf8")
+  ("uname" "Linux 2.6.34-12-desktop")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("stat" "\\stat")
+  ("file-exists" "test -e")
+  ("id" "/usr/bin/id")
+  ("gid-string" "grads")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("~" "/gpfs/home/gkarthik")
+  ("gid-integer" 40002)
+  ("readlink" "\\readlink")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("git" "\\git")
+  ("uid-integer" 25086))
+ (["scp" nil "ssh" nil nil]
   nil))
