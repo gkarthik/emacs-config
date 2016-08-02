@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("homepage"
+ (filename . "/ssh:homepage:/home/ubuntu/")
+ (front-context-string . ".bash_history\n  ")
+ (rear-context-string . "51 Jul 25 21:17 ")
+ (position . 198))
+("hpcnew"
+ (filename . "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/")
+ (front-context-string . "analysis\n  -rw--")
+ (rear-context-string . "12 Jul 20 22:07 ")
+ (position . 235))
+("localhost"
+ (filename . "~/")
+ (front-context-string)
+ (rear-context-string . "22:12 wekafiles\n")
+ (position . 5422))
+("hpc"
+ (filename . "/ssh:gkarthik@garibaldi.scripps.edu:/gpfs/home/gkarthik/")
+ (front-context-string . "jobs\n  drwxr-xr-")
+ (rear-context-string . "016-07-15 16:46 ")
+ (position . 1185))
+)

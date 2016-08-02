@@ -3,9 +3,14 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	end-of-buffer
 	keyboard-escape-quit
+	org-self-insert-command
+	yas-expand
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	autopair-insert-or-skip-quote
+	org-force-self-insert
 	))

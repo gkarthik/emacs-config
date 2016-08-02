@@ -157,3 +157,9 @@
 
 ;; Magit shortcuts				;
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;;Scratch Mode
+(setq initial-major-mode 'org-mode)
+
+;;Graphviz
+(load-file "~/.emacs.d/graphviz-dot-mode/graphviz-dot-mode.el") 
