@@ -38,3 +38,32 @@ ls
 top
 htop
 exit
+ls
+cd 
+ls
+cd Documents/
+ls
+yo angular
+s
+cd
+ls
+exit
+telnet nyancat.dakko.us
+ls
+exit
+ls
+python3 manage.py dbshell
+python3 manage.py shell
+ls
+exit
+ls
+dc
+ls
+l
+exit
+ls
+cd Downloads/
+ls
+cd ether-etherpad-lite-d6da6b3/
+ls
+./bin/run.sh 

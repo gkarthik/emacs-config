@@ -32,6 +32,9 @@
 		ac-source-symbols
 		ac-source-words-in-same-mode-buffer)
 	      ac-sources))
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/angularjs-mode/ac-dict")
+(add-to-list 'ac-modes 'angular-mode)
+(add-to-list 'ac-modes 'angular-html-mode)
 (global-auto-complete-mode t)
 
 ;;(setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
@@ -53,6 +56,8 @@
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/angularjs-mode/snippets")
+
 
 (add-to-list 'load-path "~/.emacs.d/elpa/sr-speedbar")
 (require 'sr-speedbar)
@@ -129,13 +134,14 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(require 'smartparens-config)
-(add-hook 'js-mode-hook #'smartparens-mode)
+;; (require 'smartparens-config)
+;; (add-hook 'js-mode-hook 'smartparens-mode)
 
 (require 'wrap-region)
 (setq wrap-region-mode t)
 
 (require 'win-switch)
+(global-set-key "\C-xo" 'win-switch-dispatch)
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
@@ -163,3 +169,64 @@
 
 ;;Graphviz
 (load-file "~/.emacs.d/graphviz-dot-mode/graphviz-dot-mode.el") 
+
+(add-hook 'term-mode-hook (lambda()
+                (yas-minor-mode -1)))
+
+;;Render ASCII
+(require 'ansi-color)
+(defun display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+;;JS Mode
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
+;;Js Indent
+(setq js-indent-level 2)
+
+;;Show Paren Mode On
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+    (require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#FFF400")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
+;;Org capture
+(setq org-default-notes-file "~/org/notes.org")
+(define-key global-map "\C-cc" 'org-capture)
+
+;;Grid layout
+(defun split-window-multiple-ways (x y)
+  "Split the current frame into a grid of X columns and Y rows."
+  (interactive "nColumns: \nnRows: ")
+  ;; one window
+  (delete-other-windows)
+  (dotimes (i (1- x))
+    (split-window-horizontally)
+    (dotimes (j (1- y))
+      (split-window-vertically))
+    (other-window y))
+  (dotimes (j (1- y))
+    (split-window-vertically))
+  (balance-windows))
+
+;;Opening emacs window
+(require 'bookmark)
+(bookmark-bmenu-list)
+(switch-to-buffer "*Bookmark List*")
+(split-window-horizontally)
+(other-window 1)
+(switch-to-buffer "*scratch*")
+(split-window-vertically)
+(other-window 1)
+(shell)
+

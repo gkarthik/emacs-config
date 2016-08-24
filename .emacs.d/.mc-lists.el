@@ -5,12 +5,19 @@
       '(
 	end-of-buffer
 	keyboard-escape-quit
+	kill-region
+	org-promote-subtree
 	org-self-insert-command
+	tern-ac-dot-complete
+	win-switch-dispatch
 	yas-expand
 	))
 
 (setq mc/cmds-to-run-once
       '(
 	autopair-insert-or-skip-quote
+	org-beginning-of-line
+	org-end-of-line
 	org-force-self-insert
+	switch-to-buffer
 	))
