@@ -1,0 +1,22 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".reddit.com"
+  [url-cookie "__cfduid" "d525f8c09a5b407988efcd25c7fe17f461470268237" "03 Aug 17 23:50:37 [GMT]" "/" ".reddit.com" nil]
+  [url-cookie "HttpOnly" nil "03 Aug 17 23:50:37 [GMT]" "/" ".reddit.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '(("reddit.com"
+  [url-cookie "loid" "21tXxiqCssJUiXcxto" "03-Aug-2018 23:50:40.00 GMT" "/" "reddit.com" t]
+  [url-cookie "Max-Age" "63071999" "03-Aug-2018 23:50:40.00 GMT" "/" "reddit.com" t]
+  [url-cookie "loidcreated" "2016-08-03T23%3A50%3A40.154Z" "03-Aug-2018 23:50:40.00 GMT" "/" "reddit.com" t])
+ ("en.wikipedia.org"
+  [url-cookie "WMF-Last-Access" "03-Aug-2016" "Sun, 04 Sep 2016 12:00:00 GMT" "/" "en.wikipedia.org" t]
+  [url-cookie "HttpOnly" nil "Sun, 04 Sep 2016 12:00:00 GMT" "/" "en.wikipedia.org" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

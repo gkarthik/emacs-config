@@ -1,0 +1,3 @@
+[submodule ".emacs.d/angularjs-mode"]
+	path = .emacs.d/angularjs-mode
+	url = https://github.com/omouse/angularjs-mode.git
