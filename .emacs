@@ -230,3 +230,6 @@
 (other-window 1)
 (shell)
 
+;;IDO mode
+(ido-mode)
+(setq ido-use-virtual-buffers t)
