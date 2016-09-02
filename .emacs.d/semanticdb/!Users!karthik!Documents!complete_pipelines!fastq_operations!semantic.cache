@@ -1,0 +1,54 @@
+;; Object fastq_operations/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "fastq_operations/"
+  :tables
+  (list
+    (semanticdb-table "main.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("_GNU_SOURCE" variable (:constant-flag t) nil [9 20])
+            ("stdio.h" include (:system-flag t) nil [21 39])
+            ("stdlib.h" include (:system-flag t) nil [40 59])
+            ("FilePointer" type
+               (:members 
+                  ( ("ids" variable
+                       (:pointer 1
+                        :type "int")
+                        (reparse-symbol classsubparts) [84 94])
+                    ("size" variable (:type "int") (reparse-symbol classsubparts) [97 106]))                  
+                :type "struct")
+                nil [61 109])
+            ("get_ids" function
+               (:arguments 
+                  ( ("f" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [138 147]))                  
+                :type ("FilePointer" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [111 560])
+            ("main" function
+               (:arguments 
+                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [571 576]))                  
+                :type "int")
+                nil [562 1230])
+            ("exit" function
+               (:prototype-flag t
+                :arguments 
+                  ( ("" variable (:type ("EXIT_SUCCESS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1214 1227]))                  
+                :type "int")
+                nil [1209 1228]))          
+      :file "main.c"
+      :pointmax 1231
+      :fsize 1230
+      :lastmodtime '(22472 59623 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_GNU_SOURCE")
+          )
+))
+  :file "!Users!karthik!Documents!complete_pipelines!fastq_operations!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

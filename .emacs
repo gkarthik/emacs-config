@@ -30,7 +30,8 @@
 		ac-source-variables
 		ac-source-filename
 		ac-source-symbols
-		ac-source-words-in-same-mode-buffer)
+		ac-source-words-in-same-mode-buffer
+		ac-source-semantic)
 	      ac-sources))
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/angularjs-mode/ac-dict")
 (add-to-list 'ac-modes 'angular-mode)
@@ -42,10 +43,34 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;;(add-to-list 'load-path "~/emacs.d/elpa/")
-(require 'neotree)
-(define-key neotree-mode-map (kbd "i") #'neotree-enter-horizontal-split)
-(define-key neotree-mode-map (kbd "I") #'neotree-enter-vertical-split)
+;;Helm Mode
+(require 'helm)
+(require 'helm-config)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
+(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+
+(helm-mode 1)
 
 (require 'powerline)
 
@@ -56,7 +81,6 @@
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/angularjs-mode/snippets")
 
 
 (add-to-list 'load-path "~/.emacs.d/elpa/sr-speedbar")
@@ -83,6 +107,11 @@
  ;; If there is more than one, they won't work right.
  '(flymake-errline ((((class color)) (:underline "red"))))
  '(flymake-warnline ((((class color)) (:underline "yellow")))))
+
+;;Flycheck
+(package-install 'flycheck)
+(add-hook 'c-mode-hook #'flycheck-mode)
+(add-hook 'c++-mode-hook #'flycheck-mode)
 
 ;; Display error and warning messages in minibuffer.
 (custom-set-variables
@@ -230,6 +259,7 @@
 (other-window 1)
 (shell)
 
+<<<<<<< HEAD
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((scheme . t)
@@ -239,3 +269,30 @@
  (python . t)
  (C . t)
  (sh . t)))
+=======
+;;Show entire debug on error
+(setq debug-on-error t)
+
+;;CEDET
+(load-file "~/.emacs.d/cedet/cedet-devel-load.el")
+(semantic-mode 1)
+(require 'semantic/ia)
+(require 'semantic/bovine/gcc)
+
+;;Compile
+(defun bury-compile-buffer-if-successful (buffer string)
+  "Bury a compilation buffer if succeeded without warnings "
+  (if (and
+       (string-match "compilation" (buffer-name buffer))
+       (string-match "finished" string)
+       (not
+        (with-current-buffer buffer
+          (goto-char (point-min))
+          (search-forward "warning" nil t))))
+      (run-with-timer 1 nil
+                      (lambda (buf)
+                        (bury-buffer buf)
+                        (switch-to-prev-buffer (get-buffer-window buf) 'kill))
+                      buffer)))
+(add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+>>>>>>> fda0a80b9d6daccb5465f52dfb5648ddb26ffa55

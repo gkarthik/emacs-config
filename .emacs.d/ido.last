@@ -1,0 +1,86 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/karthik/Documents/complete_pipelines/" . "fastq_operations/")
+ ("/" . ".DocumentRevisions-V100/")
+ ("/Users/karthik/Documents/scripts/" . "coverage/")
+ ("/Users/karthik/Documents/" . "scripts/")
+ ("/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/jobs/" . "complete_pipelines/")
+ ("/ssh:gkarthik@garibaldi.scripps.edu:/gpfs/home/gkarthik/" . "jobs/")
+ ("/Users/karthik/hpc_downloads/" . "2016.08.26/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/karthik/"
+ "/Users/karthik/Documents/scripts/"
+ "/Users/karthik/Documents/complete_pipelines/fastq_operations/"
+ "/Users/karthik/Documents/scripts/coverage/"
+ "/Users/karthik/Documents/complete_pipelines/"
+ "/Users/karthik/Documents/scripts/fastq_operations/"
+ "/Users/karthik/Documents/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/jobs/"
+ "/Users/karthik/Documents/scripts/pipeline/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/jobs/complete_pipelines/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/analysis/2016.08.25.1472150600/"
+ "/ssh:gkarthik@garibaldi.scripps.edu:/gpfs/home/gkarthik/jobs/kraken/single_job/"
+ "/ssh:gkarthik@garibaldi.scripps.edu:/gpfs/home/gkarthik/jobs/fastqToBam/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/jobs/novoalign/"
+ "/Users/karthik/org/"
+ "/Users/karthik/hpc_downloads/2016.08.26/_dv_reads/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/jobs/scripts/"
+ "/ssh:gkarthik@garibaldi.scripps.edu:/gpfs/home/gkarthik/jobs/scripts/"
+ "/Users/karthik/emacs-config/"
+ "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".emacs"
+ "add_class.py"
+ "filter_fastq.c"
+ "plot_coverage.py"
+ "test.fastq"
+ "filter_fastq.cpp"
+ "script.sh"
+ "compress_krona.sh"
+ "bedtools_plot_coverage.py"
+ "trim_align.sh"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/karthik/Documents/scripts/" (22472 44843 0 0) "transpose_MIME.py" "tax_parent.csv" "split_outputfiles.sh" "rename_taxname.py" "preprocess_clinical_data.py" "pipeline/" "out" "hm_group_box_plt.py" "healthy_baseline/" "group_hamming_by_id.py" "get_water_vs_extract.py" "get_subspecies_count.py" "get_ids_from_taxon.py" "get_all_zero.py" "generate_taxonomic_tree.py~" "generate_taxonomic_tree.py" "generate_species_pvalue_chart.py" "filter_reads.py" "filter_fisher.py" "filter_contaminants/" "fastq_operations/" "disease_stats.py" "disease_stats.png" "database/" "create_time_dist.py" "create_taxonomic_distribution.py" "create_tax_parent.py" "create_tax_index_count.py" "create_tax_df.py" "create_sorted_time_matrix.py" "create_matrix.py" "create_heatmap.py" "create_hamming_matrix.py" "create_fisher_filter.py" "coverage/" "convert_to_tax_id.py" "combine_counts.py" "collapse_species.py" "collapse_genus.py" "benchmark/" "array" "add_class.py" "__pycache__/" ".gitignore" ".git/" ".DS_Store" ".#add_class.py" "../" "./")
+
+ ("/Users/karthik/emacs-config/" (22472 44277 0 0) ".gitmodules" ".gitignore" ".git/" ".emacs.d/" ".emacs" "../" "./")
+
+ ("/Users/karthik/Documents/complete_pipelines/fastq_operations/" (22472 43093 0 0) "filter_fastq.c~" "filter_fastq.c" "build/" "../" "./")
+
+ ("/Users/karthik/Documents/scripts/coverage/" (22472 42984 0 0) "plot_coverage.py~" "plot_coverage.py" "bedtools_plot_coverage.py~" "bedtools_plot_coverage.py" "../" "./")
+
+ ("/Users/karthik/Documents/complete_pipelines/" (22472 41866 0 0) "filter_fastq.c~" "fastq_operations/" ".git/" "../" "./")
+
+ ("/Users/karthik/Documents/" (22472 32033 0 0) "workspace-sts-3.7.3.RELEASE/" "west_nile/" "week_5_6_hw.pdf" "usearch/" "test.fastq~" "test.fastq" "tax_nodes_dmp.csv" "tax_dump/" "scripts/" "schedule.org~" "schedule.org" "README.md" "pycairo-1.10.0/" "polygon.png" "pnas.csv" "PCA.png" "panama/" "Neo4j/" "meeting2.pptx" "Master_Sheet.xlsx" "lab_meetings/" "kraken_results/" "kraken_outputs/" "Jupyter/" "healthy_baseline/" "fonts/" "figure_1.png" "ebola/" "drug_gene_disease_network.txt" "db150mers.kraken_cnts" "contaminants_database/" "complete_pipelines/" "btw117.pdf" "bracken/" "BiosketchPage_SF424.docx" "bioinformatics_tsri/" "bioinformatics_3/" "biobranch/" "bills/" "alab_sample_tracking/" "A82V.pyc" "A82V.py" "5F1b.pyc" "5F1b.py" "2016.07.22/" ".localized" ".ipynb_checkpoints/" ".DS_Store" "../" "./")
+
+ ("/Users/karthik/Documents/scripts/fastq_operations/" (22471 27527 0 0) "test.txt" "red_ids.txt" "random_sampling.py~" "random_sampling.py" "ids.txt" "filtered.txt" "filter_reads_by_id.py" "filter_fastq.sh" "filter_fastq.dSYM/" "filter_fastq.c~" "filter_fastq.c" "filter_fastq.awk" "filter_fastq" "convert_fastq_to_fasta.sh" "../" "./")
+
+ ("/Users/karthik/" (22471 13120 0 0) "Z184_S1_L001_R1_001.trim.dedup.kraken.full.html" "Z184_S1_L001_R1_001.kraken.full.html" "Z184_1.trim.dedup.kraken.full.html" "Z184_1.kraken.full.html" "wekafiles/" "vim-config/" "uploads/" "Tools/" "simulation_paired.kraken.full.html" "scratch" "req_ids.txt" "README.md" "Public/" "Pictures/" "perl5/" "org/" "node_modules/" "Music/" "Movies/" "mmuSPIA.RData" "Library/" "igv/" "hpc_downloads/" "git/" "Geneious_9.1_data/" "emacs-config/" "Dropbox (ALab)/" "Downloads/" "Documents/" "Desktop/" "CytoscapeConfiguration/" "Applications/" ".vimrc" ".viminfo" ".vim/" ".Trash/" ".teamocil/" ".subversion/" ".ssh/" ".sh_history" ".rstudio-desktop/" ".Rhistory" ".RData" ".python_history" ".psql_history" ".oracle_jre_usage/" ".npm/" ".node-gyp/" ".NERDTreeBookmarks" ".mirador/" ".matplotlib/" ".local/" ".jupyter/" ".ipython/" ".htoprc" ".hammerspoon/" ".gradle/" ".gitconfig" ".gem/" ".emacs~" ".emacs.d/" ".emacs" ".eclipse/" ".DS_Store" ".dropbox/" ".cups/" ".cpan/" ".config/" ".chimera/" ".CFUserTextEncoding" ".caffeine/" ".cache/" ".bashrc~" ".bashrc" ".bash_sessions/" ".bash_profile.macports-saved_2016-06-08_at_14:57:16" ".bash_profile" ".bash_history" ".anyconnect" "#test.org#" "#test#" "../" "./")
+
+ ("/Users/karthik/Documents/scripts/pipeline/" (22471 14709 0 0) "run_pipeline.py" "filter_reads_by_id.py" "compress_krona.sh~" "compress_krona.sh" "assemble_contaminants.py" "../" "./")
+
+ ("/Users/karthik/org/" (22470 1318 0 0) "work.org~" "work.org" "personal.org~" "personal.org" "notes.org~" "notes.org" ".gitignore~" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/karthik/hpc_downloads/2016.08.26/_dv_reads/" (22465 3600 0 0) "Undetermined_S0_L001_R2_001.fastq" "Undetermined_S0_L001_R1_001.fastq" "Negctrl_S6_L001_R2_001.fastq" "Negctrl_S6_L001_R1_001.fastq" "LASV_S5_L001_R2_001.fastq" "LASV_S5_L001_R1_001.fastq" "CHIKV-C7_S1_L001_R2_001.fastq" "CHIKV-C7_S1_L001_R1_001.fastq" "CHIKV-C7_S1_L001_R1_001.fasta" "CHIKV-C17_S4_L001_R2_001.fastq" "CHIKV-C17_S4_L001_R1_001.fastq" "CHIKV-C17_S4_L001_R1_001.fasta" "CHIKV-C16_S3_L001_R2_001.fastq" "CHIKV-C16_S3_L001_R1_001.fastq" "CHIKV-C11_S2_L001_R2_001.fastq" "CHIKV-C11_S2_L001_R1_001.fastq" ".DS_Store" "../" "./")
+
+ ("/Users/karthik/hpc_downloads/2016.08.26/" (22464 44503 0 0) "ZP1-c1-SS-a3-l3-r1_S8_L001_1.trim.dedup.kraken.full.html" "ZP1-c1-SS-a3-l3-r1_S8_L001_1.kraken.full.html" "ZP1-c1-SS-a2-l2-r1_S7_L001_1.trim.dedup.kraken.full.html" "ZP1-c1-SS-a2-l2-r1_S7_L001_1.kraken.full.html" "ZP1-c1-SS-a1-l1-r1_S6_L001_1.trim.dedup.kraken.full.html" "ZP1-c1-SS-a1-l1-r1_S6_L001_1.kraken.full.html" "ZF8-c1-UR-a1-l1-r1_S3_L001_1.trim.dedup.kraken.full.html" "ZF8-c1-UR-a1-l1-r1_S3_L001_1.kraken.full.html" "ZF18-c1-UR-a1-l1-r1_S5_L001_1.trim.dedup.kraken.full.html" "ZF18-c1-UR-a1-l1-r1_S5_L001_1.kraken.full.html" "ZF10-c1-UR-a1-l1-r1_S4_L001_1.trim.dedup.kraken.full.html" "ZF10-c1-UR-a1-l1-r1_S4_L001_1.kraken.full.html" "ZF1-c1-Sa-a1-l1-r1_S2_L001_1.trim.dedup.kraken.full.html" "ZF1-c1-Sa-a1-l1-r1_S2_L001_1.kraken.full.html" "Undetermined_S0_L001_R1_001.trim.dedup.kraken.full.html" "Undetermined_S0_L001_R1_001.kraken.full.html" "Undetermined_S0_L001_1.trim.dedup.kraken.full.html" "Undetermined_S0_L001_1.kraken.full.html" "Negctrl_S6_L001_R1_001.trim.dedup.kraken.full.html" "Negctrl_S6_L001_R1_001.kraken.full.html" "LASV_S5_L001_R1_001.trim.dedup.kraken.full.html" "LASV_S5_L001_R1_001.kraken.full.html" "GN2-c1-RN-a1-l1-r1_S1_L001_1.trim.dedup.kraken.full.html" "GN2-c1-RN-a1-l1-r1_S1_L001_1.kraken.full.html" "CHIKV-C7_S1_L001_R1_001.trim.dedup.kraken.full.html" "CHIKV-C7_S1_L001_R1_001.kraken.full.html" "CHIKV-C17_S4_L001_R1_001.trim.dedup.kraken.full.html" "CHIKV-C17_S4_L001_R1_001.kraken.full.html" "CHIKV-C16_S3_L001_R1_001.trim.dedup.kraken.full.html" "CHIKV-C16_S3_L001_R1_001.kraken.full.html" "CHIKV-C11_S2_L001_R1_001.trim.dedup.kraken.full.html" "CHIKV-C11_S2_L001_R1_001.kraken.full.html" "_prefiltering/" ".DS_Store" "../" "./")
+
+ ("/Users/karthik/hpc_downloads/" (22464 34749 0 0) "zika_fastqc.html" "zika-2/" "Z186/" "workq.txt" "update_blastdb.pl" "untitled folder/" "transcripts.sorted.gtf.idx" "transcripts.sorted.gtf" "transcripts.gtf" "species.csv~" "species.csv" "remove_reads_by_id.sh" "multiqc_report.html" "kraken_3_14/" "Idiom1-ZR-S4-full" "Idiom1-Q_S3_L001_R1_001_human_removed.fastq" "Idiom1-Q_S3_L001_R1_001.trim_dedup.2.fastq" "Idiom1-Q_S3_L001_R1_001.trim_dedup.1.fastq" "Idiom1-Q_S3_L001_R1_001.fastq" "Idiom1-Q_S3_L001_mapped_1.trim.dedup.kraken.full.html" "Idiom1-Q_S3_L001_mapped_1.kraken.full.html" "human_kraken_2_29/" "human_ids/" "hfd-late/" "hfd-early/" "G6060.1.kraken.full.html" "fastq/" "chow-late/" "chow-early/" "bmtagger_test/" "blast_results.rma" "BCL002/" "accepted_hits.bam" "accepted_hits.bai" "_meta/" "_10_/" "3_30_16/" "3_25_16/" "2016.08.26/" "2016.08.23.1471988531/" "2016.08.23/" "2016.08.22/" "2016.08.18/" "2016.08.17/" "2016.08.16/" "2016.08.15/" "2016.08.01/" "2016.07.29/" "2016.07.21/" "2016.07.20/" "2016.07.19/" "2016.07.14/" "16.07.15/" "05_10_16/" "05_02_16/" "03_30_16_old/" ".DS_Store" "../" "./")
+
+ ("/Users/" (22384 28065 0 0) "Shared/" "karthik/" "Guest/" ".localized" "../" "./")
+
+ ("/Users/karthik/Applications/" (22385 41842 0 0) "Utilities/" "ShiftIt.app/" "Chrome Apps.localized/" ".localized" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
