@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <16/08/24 12:29:39 /Users/karthik/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/08/30 18:59:11 /home/prime/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -19,7 +19,13 @@
   ("perl" "\\perl")
   ("ls" "/bin/ls --color=never")
   ("ls-dired" t)
-  ("gid-integer" 40002))
+  ("gid-integer" 40002)
+  ("readlink" "\\readlink")
+  ("git" "\\git")
+  ("uid-integer" 25086)
+  ("tmpdir" "/ssh:gkarthik@garibaldi.scripps.edu:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch"))
  (["ssh" "gkarthik" "login01.scripps.edu" nil nil]
   ("locale" "LC_ALL=en_US.utf8")
   ("uname" "Linux 2.6.32-573.12.1.el6.x86_64")
@@ -45,8 +51,6 @@
   ("touch-t" t)
   ("touch" "\\touch")
   ("~data" "sh: cd: ~data: No such file or directory"))
- (["ssh" "gkarthik" "hpcdata.scripps.edu" nil nil]
-  nil)
  (["ssh" nil "homepage" nil nil]
   ("locale" "LC_ALL=en_US.utf8")
   ("uname" "Linux 3.13.0-48-generic")

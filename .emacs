@@ -230,3 +230,12 @@
 (other-window 1)
 (shell)
 
+(org-babel-do-load-languages
+'org-babel-load-languages
+'((scheme . t)
+ (emacs-lisp . t)
+ (ruby . t)
+ (R . t)
+ (python . t)
+ (C . t)
+ (sh . t)))
