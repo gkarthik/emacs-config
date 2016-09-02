@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <16/08/26 17:02:47 /Users/karthik/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/09/01 18:55:04 /Users/karthik/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -61,4 +61,10 @@
   ("~" "/gpfs/home/gkarthik")
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
-  ("perl" "\\perl")))
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("git" "\\git")
+  ("uid-integer" 25086)
+  ("tmpdir" "/ssh:gkarthik@garibaldi.scripps.edu:/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch")))
