@@ -257,7 +257,7 @@
 (switch-to-buffer "*scratch*")
 (split-window-vertically)
 (other-window 1)
-(shell)
+(eshell)
 
 (org-babel-do-load-languages
 'org-babel-load-languages
