@@ -259,7 +259,6 @@
 (other-window 1)
 (shell)
 
-<<<<<<< HEAD
 (org-babel-do-load-languages
 'org-babel-load-languages
 '((scheme . t)
@@ -269,7 +268,7 @@
  (python . t)
  (C . t)
  (sh . t)))
-=======
+
 ;;Show entire debug on error
 (setq debug-on-error t)
 
@@ -295,4 +294,3 @@
                         (switch-to-prev-buffer (get-buffer-window buf) 'kill))
                       buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
->>>>>>> fda0a80b9d6daccb5465f52dfb5648ddb26ffa55
