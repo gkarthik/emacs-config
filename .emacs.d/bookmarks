@@ -17,16 +17,6 @@
  (front-context-string . "analysis\n  -rw--")
  (rear-context-string . "016-08-16 13:12 ")
  (position . 247))
-("org-capture-last-stored"
- (filename . "~/org/notes.org")
- (front-context-string . "** TODO \n   [201")
- (rear-context-string)
- (position . 10))
-("homepage"
- (filename . "/ssh:homepage:/home/ubuntu/")
- (front-context-string . ".bash_history\n  ")
- (rear-context-string . "51 Jul 25 21:17 ")
- (position . 198))
 ("hpcnew"
  (filename . "/ssh:gkarthik@login01.scripps.edu:/gpfs/home/gkarthik/")
  (front-context-string . "analysis\n  -rw--")
