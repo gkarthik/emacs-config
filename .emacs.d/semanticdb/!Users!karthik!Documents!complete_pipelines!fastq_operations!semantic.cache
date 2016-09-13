@@ -9,41 +9,45 @@
         '( ("_GNU_SOURCE" variable (:constant-flag t) nil [9 20])
             ("stdio.h" include (:system-flag t) nil [21 39])
             ("stdlib.h" include (:system-flag t) nil [40 59])
+            ("string.h" include (:system-flag t) nil [60 79])
             ("FilePointer" type
                (:members 
                   ( ("ids" variable
-                       (:pointer 1
-                        :type "int")
-                        (reparse-symbol classsubparts) [84 94])
-                    ("size" variable (:type "int") (reparse-symbol classsubparts) [97 106]))                  
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol classsubparts) [104 115])
+                    ("size" variable (:type "int") (reparse-symbol classsubparts) [118 127]))                  
                 :type "struct")
-                nil [61 109])
+                nil [81 130])
             ("get_ids" function
                (:arguments 
                   ( ("f" variable
                        (:pointer 1
                         :type ("FILE" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [138 147]))                  
+                        (reparse-symbol arg-sub-list) [159 168]))                  
                 :type ("FilePointer" type
                      (:prototype t
                       :type "struct")
                       nil nil))
-                nil [111 560])
+                nil [132 694])
             ("main" function
                (:arguments 
-                  ( ("" variable (:type "void") (reparse-symbol arg-sub-list) [571 576]))                  
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [705 714])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [715 728])
+                    ("envp" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [729 741]))                  
                 :type "int")
-                nil [562 1230])
-            ("exit" function
-               (:prototype-flag t
-                :arguments 
-                  ( ("" variable (:type ("EXIT_SUCCESS" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1214 1227]))                  
-                :type "int")
-                nil [1209 1228]))          
+                nil [696 1474]))          
       :file "main.c"
-      :pointmax 1231
-      :fsize 1230
-      :lastmodtime '(22472 59623 0 0)
+      :pointmax 1475
+      :fsize 1474
+      :lastmodtime '(22479 15130 0 0)
       :unmatched-syntax nil
       :lexical-table 
         '(("_GNU_SOURCE")

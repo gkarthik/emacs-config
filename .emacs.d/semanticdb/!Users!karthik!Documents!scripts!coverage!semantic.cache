@@ -1,0 +1,25 @@
+;; Object coverage/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "coverage/"
+  :tables
+  (list
+    (semanticdb-table "plot_coverage.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [1 10])
+            ("math" include nil nil [11 22])
+            ("pandas" include nil nil [23 42])
+            ("matplotlib.pyplot" include nil nil [43 74])
+            ("sys" include nil nil [75 85])
+            ("numpy" include nil nil [86 104])
+            ("src" variable nil nil [106 121])
+            ("dest" variable nil nil [122 138])
+            ("for" code nil nil [140 819]))          
+      :file "plot_coverage.py"
+      :pointmax 1023
+      :fsize 1022
+      :lastmodtime '(22472 46141 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!scripts!coverage!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

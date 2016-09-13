@@ -67,3 +67,6 @@ ls
 cd ether-etherpad-lite-d6da6b3/
 ls
 ./bin/run.sh 
+ls
+hpc
+ssh gkarthik@garibaldi.scripps.edu
