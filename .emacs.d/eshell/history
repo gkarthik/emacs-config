@@ -88,3 +88,35 @@ cd
 ls
 cd
 ls
+ls
+cd
+ls
+ls
+cd
+ls
+htop
+cd
+ls
+ls
+cd
+ls
+cd Documents/
+ls
+cd
+ls
+ls
+cd
+ls
+cd emacs-config/
+ls
+git add .
+git commit -m 'Repalce shell with eshell on open'
+git push origin master
+cd
+ls
+;s
+ls
+cd
+ls
+ld
+rpi
