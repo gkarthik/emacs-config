@@ -1,0 +1,40 @@
+;; Object bacteremia/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bacteremia/"
+  :tables
+  (list
+    (semanticdb-table "get_count_across_samples.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("os" include nil nil [1 10])
+            ("pandas" include nil nil [11 30])
+            ("matplotlib.pyplot" include nil nil [31 62])
+            ("matplotlib" include nil nil [63 87])
+            ("mpl" code nil nil [89 112])
+            ("src" variable nil nil [114 167])
+            ("ids" variable nil nil [169 208])
+            ("samples" variable nil nil [209 401])
+            ("tax_df" variable nil nil [403 511])
+            ("tax_df" variable nil nil [512 564])
+            ("get_species_count" function (:arguments 
+              ( ("df" variable nil (reparse-symbol function_parameters) [588 590])
+                ("id" variable nil (reparse-symbol function_parameters) [592 594])
+                ("species_df" variable nil (reparse-symbol function_parameters) [596 606])
+                ("row_name" variable nil (reparse-symbol function_parameters) [608 616])
+                ("col_name" variable nil (reparse-symbol function_parameters) [618 626]))              ) nil [566 991])
+            ("get_counts_df" function (:arguments 
+              ( ("path" variable nil (reparse-symbol function_parameters) [1010 1014])
+                ("species_df" variable nil (reparse-symbol function_parameters) [1016 1026]))              ) nil [992 2003])
+            ("format_df" function (:arguments 
+              ( ("df" variable nil (reparse-symbol function_parameters) [2018 2020]))              ) nil [2004 2101])
+            ("plot_species" function (:arguments 
+              ( ("df" variable nil (reparse-symbol function_parameters) [2131 2133]))              ) nil [2114 2739])
+            ("if" code nil nil [2753 3327]))          
+      :file "get_count_across_samples.py"
+      :pointmax 3332
+      :fsize 3331
+      :lastmodtime '(22487 31460 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!bacteremia!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
