@@ -1,0 +1,16 @@
+;; Object with-editor-2.5.3/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "with-editor-2.5.3/"
+  :tables
+  (list
+    (semanticdb-table "with-editor-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "with-editor-autoloads.el"
+      :pointmax 403
+      :fsize 402
+      :lastmodtime '(22508 16574 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!with-editor-2.5.3!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

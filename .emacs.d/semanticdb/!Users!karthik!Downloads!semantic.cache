@@ -1,0 +1,22 @@
+;; Object Downloads/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Downloads/"
+  :tables
+  (list
+    (semanticdb-table "recurrent_mutations.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("__future__" include nil nil [1 48])
+            ("numpy" include nil nil [49 67])
+            ("treetime" include nil nil [68 96])
+            ("collections" include nil nil [97 132])
+            ("Bio" include nil nil [133 163])
+            ("if" code nil nil [165 2589]))          
+      :file "recurrent_mutations.py"
+      :pointmax 2589
+      :fsize 2640
+      :lastmodtime '(22488 23412 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Downloads!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

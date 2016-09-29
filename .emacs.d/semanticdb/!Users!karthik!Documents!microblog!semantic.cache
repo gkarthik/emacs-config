@@ -1,0 +1,27 @@
+;; Object microblog/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "microblog/"
+  :tables
+  (list
+    (semanticdb-table "index.html"
+      :major-mode 'html-mode
+      :tags 
+        '( ("Microblog by gkarthik" section nil nil [123 365])
+            ("{% endfor %}" section nil nil [365 464])
+            ("Microblog" section (:members 
+              ( ("Microblog" section (:members 
+                  ( ("{{ post.title }}" anchor nil nil [618 621])
+                    ("View the Project on GitHub <small>gkarthik/microblog" anchor nil nil [758 761])
+                    ("Microblog" section (:members 
+                      ( ("Twitter" anchor nil nil [1078 1081])
+                        ("gkarthik" anchor nil nil [1205 1208])
+                        ("orderedlist" anchor nil nil [1318 1321]))                      ) nil [916 1418]))                  ) nil [520 1418]))              ) nil [464 1418])
+            ("" section nil nil [1418 1490]))          
+      :file "index.html"
+      :pointmax 1490
+      :fsize 1489
+      :lastmodtime '(22499 20778 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!microblog!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

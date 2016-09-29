@@ -3,7 +3,7 @@
 (semanticdb-project-database-file "fastq_operations/"
   :tables
   (list
-    (semanticdb-table "main.c"
+    (semanticdb-table "change_fastq_names.c"
       :major-mode 'c-mode
       :tags 
         '( ("_GNU_SOURCE" variable (:constant-flag t) nil [9 20])
@@ -19,35 +19,35 @@
                     ("size" variable (:type "int") (reparse-symbol classsubparts) [118 127]))                  
                 :type "struct")
                 nil [81 130])
-            ("get_ids" function
+            ("get_new_ids" function
                (:arguments 
                   ( ("f" variable
                        (:pointer 1
                         :type ("FILE" type (:type "class") nil nil))
-                        (reparse-symbol arg-sub-list) [159 168]))                  
+                        (reparse-symbol arg-sub-list) [163 172]))                  
                 :type ("FilePointer" type
                      (:prototype t
                       :type "struct")
                       nil nil))
-                nil [132 694])
+                nil [132 716])
             ("main" function
                (:arguments 
-                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [705 714])
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [727 736])
                     ("argv" variable
                        (:pointer 1
                         :dereference 1
                         :type "char")
-                        (reparse-symbol arg-sub-list) [715 728])
+                        (reparse-symbol arg-sub-list) [737 750])
                     ("envp" variable
                        (:pointer 2
                         :type "char")
-                        (reparse-symbol arg-sub-list) [729 741]))                  
+                        (reparse-symbol arg-sub-list) [751 763]))                  
                 :type "int")
-                nil [696 1474]))          
-      :file "main.c"
-      :pointmax 1475
-      :fsize 1474
-      :lastmodtime '(22479 15130 0 0)
+                nil [718 1742]))          
+      :file "change_fastq_names.c"
+      :pointmax 1743
+      :fsize 1742
+      :lastmodtime '(22490 55741 0 0)
       :unmatched-syntax nil
       :lexical-table 
         '(("_GNU_SOURCE")

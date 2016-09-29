@@ -1,0 +1,24 @@
+;; Object kraken_db_scripts/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "kraken_db_scripts/"
+  :tables
+  (list
+    (semanticdb-table "replace_gb_gi_ids.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("requests" include nil nil [1 16])
+            ("pandas" include nil nil [17 36])
+            ("df" variable nil nil [38 140])
+            ("ids" variable nil nil [142 150])
+            ("ambigious" variable nil nil [151 165])
+            ("for" code nil nil [167 541])
+            ("print" code nil nil [542 562])
+            ("with" code nil nil [563 692]))          
+      :file "replace_gb_gi_ids.py"
+      :pointmax 692
+      :fsize 691
+      :lastmodtime '(22488 44190 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!kraken_db_scripts!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object tern-auto-complete-0.20.0/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "tern-auto-complete-0.20.0/"
+  :tables
+  (list
+    (semanticdb-table "tern-auto-complete-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "tern-auto-complete-autoloads.el"
+      :pointmax 564
+      :fsize 661
+      :lastmodtime '(22508 16574 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!tern-auto-complete-0.20.0!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

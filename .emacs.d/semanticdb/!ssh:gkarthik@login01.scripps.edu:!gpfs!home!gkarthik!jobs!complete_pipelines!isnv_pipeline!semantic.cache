@@ -1,0 +1,16 @@
+;; Object isnv_pipeline/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "isnv_pipeline/"
+  :tables
+  (list
+    (semanticdb-table "cluster.json"
+      :major-mode 'js-mode
+      :tags nil
+      :file "cluster.json"
+      :pointmax 546
+      :fsize 545
+      :lastmodtime '(22499 11587)
+      :unmatched-syntax nil))
+  :file "!ssh:gkarthik@login01.scripps.edu:!gpfs!home!gkarthik!jobs!complete_pipelines!isnv_pipeline!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

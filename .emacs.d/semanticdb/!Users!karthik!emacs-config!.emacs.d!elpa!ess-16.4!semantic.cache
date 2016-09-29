@@ -1,0 +1,16 @@
+;; Object ess-16.4/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ess-16.4/"
+  :tables
+  (list
+    (semanticdb-table "ess-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ess-autoloads.el"
+      :pointmax 2605
+      :fsize 2678
+      :lastmodtime '(22508 16600 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!ess-16.4!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

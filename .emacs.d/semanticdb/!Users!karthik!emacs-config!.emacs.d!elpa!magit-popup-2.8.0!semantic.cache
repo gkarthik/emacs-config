@@ -1,0 +1,16 @@
+;; Object magit-popup-2.8.0/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "magit-popup-2.8.0/"
+  :tables
+  (list
+    (semanticdb-table "magit-popup-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "magit-popup-autoloads.el"
+      :pointmax 401
+      :fsize 402
+      :lastmodtime '(22508 16590 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!magit-popup-2.8.0!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

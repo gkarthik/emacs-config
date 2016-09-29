@@ -1,0 +1,16 @@
+;; Object get_indexes/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "get_indexes/"
+  :tables
+  (list
+    (semanticdb-table "cluster.json"
+      :major-mode 'js-mode
+      :tags nil
+      :file "cluster.json"
+      :pointmax 184
+      :fsize 183
+      :lastmodtime '(22500 19684)
+      :unmatched-syntax nil))
+  :file "!ssh:gkarthik@login01.scripps.edu:!gpfs!home!gkarthik!jobs!bam_operations!get_indexes!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,16 @@
+;; Object snakemake-mode-0.5.1/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "snakemake-mode-0.5.1/"
+  :tables
+  (list
+    (semanticdb-table "snakemake-mode-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "snakemake-mode-autoloads.el"
+      :pointmax 301
+      :fsize 3182
+      :lastmodtime '(22491 3751 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!snakemake-mode-0.5.1!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,24 @@
+;; Object isnv_pipeline/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "isnv_pipeline/"
+  :tables
+  (list
+    (semanticdb-table "show_variants.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("pandas" include nil nil [1 20])
+            ("os" include nil nil [21 30])
+            ("folder" variable nil nil [32 81])
+            ("folder" variable nil nil [82 131])
+            ("pos_ctrl" variable nil nil [132 147])
+            ("fields" variable nil nil [148 244])
+            ("freq_threshold" variable nil nil [245 267])
+            ("if" code nil nil [269 1779]))          
+      :file "show_variants.py"
+      :pointmax 1779
+      :fsize 1778
+      :lastmodtime '(22500 32045 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!complete_pipelines!isnv_pipeline!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

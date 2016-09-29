@@ -1,0 +1,16 @@
+;; Object lib/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "lib/"
+  :tables
+  (list
+    (semanticdb-table "require.js"
+      :major-mode 'js-mode
+      :tags nil
+      :file "require.js"
+      :pointmax 17825
+      :fsize 17824
+      :lastmodtime '(22508 51126 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!branch_server!branch!static!lib!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

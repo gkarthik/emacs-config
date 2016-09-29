@@ -1,0 +1,21 @@
+;; Object zika-amplicon/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "zika-amplicon/"
+  :tables
+  (list
+    (semanticdb-table "remove_primers.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("pysam" include nil nil [1 13])
+            ("copy" include nil nil [14 35])
+            ("f" variable nil nil [37 108])
+            ("infile" variable nil nil [110 147])
+            ("for" code nil nil [149 215]))          
+      :file "remove_primers.py"
+      :pointmax 220
+      :fsize 214
+      :lastmodtime '(22501 39507 0 0)
+      :unmatched-syntax '((FROM 14 . 18) ($EOI 203 . 203) ($EOI 52 . 52))))
+  :file "!Users!karthik!Documents!code!zika-amplicon!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

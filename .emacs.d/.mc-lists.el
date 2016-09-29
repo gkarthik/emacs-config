@@ -6,6 +6,7 @@
 	end-of-buffer
 	keyboard-escape-quit
 	kill-region
+	org-delete-char
 	org-promote-subtree
 	org-self-insert-command
 	tern-ac-dot-complete
@@ -15,7 +16,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+	autopair-insert-opening
 	autopair-insert-or-skip-quote
+	autopair-skip-close-maybe
 	org-beginning-of-line
 	org-end-of-line
 	org-force-self-insert

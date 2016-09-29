@@ -72,7 +72,7 @@
 
 (helm-mode 1)
 
-(require 'powerline)
+;; (require 'powerline)
 
 ;;(add-to-list 'load-path "/.emacs.d/elpa/autopair") ;; comment if autopair.el is in standard load path
 (require 'autopair)
@@ -126,15 +126,6 @@
 	;;; jedi completion
 	;;; see https://github.com/tkf/emacs-jedi
 
-;; jedi dependency: deferred
-(add-to-list 'load-path (expand-file-name
-			 "~/.emacs.d/elpa/deferred"))
-;; jedi dependency: deferred
-(add-to-list 'load-path (expand-file-name
-			 "~/.emacs.d/elpa/ctable"))
-;; jedi dependency: epc
-(add-to-list 'load-path (expand-file-name
-			 "~/.emacs.d/elpa/epc"))
 (add-to-list 'load-path (expand-file-name
 			 "~/.emacs.d/elpa/jedi"))
 (require 'jedi)
@@ -294,3 +285,12 @@
                         (switch-to-prev-buffer (get-buffer-window buf) 'kill))
                       buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+
+(defun sudired ()
+  (interactive)
+  (require 'tramp)
+  (let ((dir (expand-file-name default-directory)))
+    (if (string-match "^/sudo:" dir)
+        (user-error "Already in sudo")
+      (dired (concat "/sudo::" dir)))))
+(define-key dired-mode-map "!" 'sudired)

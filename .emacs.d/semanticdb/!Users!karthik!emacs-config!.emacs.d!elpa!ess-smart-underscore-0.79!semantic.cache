@@ -1,0 +1,16 @@
+;; Object ess-smart-underscore-0.79/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ess-smart-underscore-0.79/"
+  :tables
+  (list
+    (semanticdb-table "ess-smart-underscore-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ess-smart-underscore-autoloads.el"
+      :pointmax 2077
+      :fsize 2076
+      :lastmodtime '(22508 16551 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!ess-smart-underscore-0.79!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

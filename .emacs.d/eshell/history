@@ -1,32 +1,4 @@
 ls
-clear
-ls
-hpcnew
-ssh gkarthik@garibaldi.scripps.edu
-clear
-ls
-exit
-ls
-cd analysis/
-ls
-cd
-clear
-ls
-ls
-exit
-top
-htop
-ls
-cd
-ls
-cd
-ls
-clear
-ls
-cd Documents/
-ls
-cd
-ls
 top
 ls
 exit
@@ -89,4 +61,68 @@ ls
 cd
 ls
 cd
+ls
+cd emacs-config/
+ls
+git push origin master
+git add .
+git commit -m 'Merged'
+git push origin master
+cd
+clear
+ls
+cd
+ls
+date +%Y.%m.%d
+echo $(date +%Y.%m.%d)
+date
+ls
+cd
+ls
+ls
+cd test
+ls
+gunzip -c file_combined.gz > file_combined.fastq
+ls
+cat file_combined.gz
+ls
+ls
+ls
+cd
+ls
+ls
+ls
+cd
+ls
+cd Documents/
+ls
+cd
+ls
+ls
+cd
+ls
+ls
+cd
+ls
+ls
+cd
+ls
+cd
+sl
+d
+ls
+cd
+ls
+cd
+ls
+cd
+ls
+cd
+ls
+cd
+exit
+ls
+cd
+ls
+ssh -i ~/.ssh/homeweb.pem ubuntu@52.5.35.15
 ls

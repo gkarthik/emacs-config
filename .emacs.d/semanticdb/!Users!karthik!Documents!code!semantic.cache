@@ -1,0 +1,46 @@
+;; Object code/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "code/"
+  :tables
+  (list
+    (semanticdb-table "temp_port.py~"
+      :major-mode 'python-mode
+      :tags nil
+      :file "temp_port.py~"
+      :pointmax 108
+      :fsize 107
+      :lastmodtime '(22506 62433 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "map_ports.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("pandas" include nil nil [1 20])
+            ("df" variable nil nil [22 76])
+            ("_d" variable nil nil [77 96])
+            ("_d" variable nil nil [97 131])
+            ("_d" code nil nil [132 167])
+            ("_d" variable nil nil [168 210])
+            ("tf" variable nil nil [212 258])
+            ("c" variable nil nil [259 283])
+            ("for" code nil nil [285 452]))          
+      :file "map_ports.py"
+      :pointmax 488
+      :fsize 451
+      :lastmodtime '(22507 2169 0 0)
+      :unmatched-syntax '((NAME 453 . 455) ($EOI 488 . 488)))
+    (semanticdb-table "add_class.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("pandas" include nil nil [1 20])
+            ("dir" variable nil nil [22 70])
+            ("assign_class" function (:arguments 
+              ( ("fname" variable nil (reparse-symbol function_parameters) [89 94]))              ) nil [72 293])
+            ("if" code nil nil [294 1174]))          
+      :file "add_class.py"
+      :pointmax 1174
+      :fsize 1173
+      :lastmodtime '(22508 16978 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!Documents!code!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
