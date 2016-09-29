@@ -1,2 +1,5 @@
 .emacs.d/.python-environments/
 *~
+.emacs.d/eshell/lastdir
+.emacs.d/eshell/history
+.emacs.d/ac-comphist.dat
