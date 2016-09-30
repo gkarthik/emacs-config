@@ -5,6 +5,13 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; Open agenda in current window
+(setq org-agenda-window-setup 'current-window)
+
+;;Maximize on startup
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
 	     '("melpa" . "https://stable.melpa.org/packages/"))
@@ -240,15 +247,15 @@
   (balance-windows))
 
 ;;Opening emacs window
+(add-hook 'after-init-hook 'org-agenda-list)
+(switch-to-buffer "*Org Agenda*")
+(split-window-horizontally)
+(other-window 1)
 (require 'bookmark)
 (bookmark-bmenu-list)
 (switch-to-buffer "*Bookmark List*")
-(split-window-horizontally)
-(other-window 1)
-(switch-to-buffer "*scratch*")
 (split-window-vertically)
-(other-window 1)
-(multi-term)
+(switch-to-buffer "*scratch*")
 
 (org-babel-do-load-languages
 'org-babel-load-languages
