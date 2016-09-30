@@ -248,7 +248,7 @@
 (switch-to-buffer "*scratch*")
 (split-window-vertically)
 (other-window 1)
-(eshell)
+(multi-term)
 
 (org-babel-do-load-languages
 'org-babel-load-languages
@@ -294,3 +294,5 @@
         (user-error "Already in sudo")
       (dired (concat "/sudo::" dir)))))
 (define-key dired-mode-map "!" 'sudired)
+
+
