@@ -4,3 +4,12 @@
 [submodule "cedet"]
 	path = .emacs.d/cedet
 	url = http://git.code.sf.net/p/cedet/git
+[submodule ".emacs.d/isend-mode"]
+	path = .emacs.d/isend-mode
+	url = https://github.com/ffevotte/isend-mode.el.git
+[submodule ".emacs.d/themes/emacs-color-theme-solarized"]
+	path = .emacs.d/themes/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
+[submodule ".emacs.d/elpa/undo-tree"]
+	path = .emacs.d/elpa/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git
