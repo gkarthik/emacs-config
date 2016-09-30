@@ -1,0 +1,16 @@
+;; Object ht-2.1/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "ht-2.1/"
+  :tables
+  (list
+    (semanticdb-table "ht-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "ht-autoloads.el"
+      :pointmax 277
+      :fsize 345
+      :lastmodtime '(22509 45994 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!ht-2.1!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

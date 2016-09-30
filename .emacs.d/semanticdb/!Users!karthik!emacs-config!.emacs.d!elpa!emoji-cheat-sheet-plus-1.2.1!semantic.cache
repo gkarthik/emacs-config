@@ -1,0 +1,16 @@
+;; Object emoji-cheat-sheet-plus-1.2.1/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "emoji-cheat-sheet-plus-1.2.1/"
+  :tables
+  (list
+    (semanticdb-table "emoji-cheat-sheet-plus-autoloads.el"
+      :major-mode 'emacs-lisp-mode
+      :tags nil
+      :file "emoji-cheat-sheet-plus-autoloads.el"
+      :pointmax 317
+      :fsize 998
+      :lastmodtime '(22509 46006 0 0)
+      :unmatched-syntax nil))
+  :file "!Users!karthik!emacs-config!.emacs.d!elpa!emoji-cheat-sheet-plus-1.2.1!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
