@@ -277,6 +277,9 @@
 (semantic-mode 1)
 (require 'semantic/ia)
 (require 'semantic/bovine/gcc)
+(global-ede-mode 1)                      ; Enable the Project management system
+(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+(global-srecode-minor-mode 1)            ; Enable template insertion menu
 
 ;;Compile
 (defun bury-compile-buffer-if-successful (buffer string)
@@ -348,3 +351,25 @@
 (load-persistent-scratch)
 
 (push #'save-persistent-scratch kill-emacs-hook)
+
+;; Rainbow delimiter
+(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'c-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'javascript-mode-hook #'rainbow-delimiters-mode)
+
+;; Rainbow identifiers
+(add-hook 'clojure-mode-hook #'rainbow-identifiers-mode)
+(add-hook 'python-mode-hook #'rainbow-identifiers-mode)
+(add-hook 'c-mode-hook #'rainbow-identifiers-mode)
+(add-hook 'c++-mode-hook #'rainbow-identifiers-mode)
+(add-hook 'javascript-mode-hook #'rainbow-identifiers-mode)
+
+;; Rainbow Blocks
+(require 'rainbow-blocks)
+(add-hook 'clojure-mode-hook 'rainbow-blocks-mode)
+(add-hook 'python-mode-hook 'rainbow-blocks-mode)
+(add-hook 'c-mode-hook 'rainbow-blocks-mode)
+(add-hook 'c++-mode-hook 'rainbow-blocks-mode)
+(add-hook 'javascript-mode-hook 'rainbow-blocks-mode)
