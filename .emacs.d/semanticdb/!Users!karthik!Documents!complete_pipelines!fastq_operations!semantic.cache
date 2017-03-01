@@ -52,6 +52,56 @@
       :lexical-table 
         '(("_GNU_SOURCE")
           )
+)
+    (semanticdb-table "filter_fastq.c"
+      :major-mode 'c-mode
+      :tags 
+        '( ("_GNU_SOURCE" variable (:constant-flag t) nil [9 20])
+            ("stdio.h" include (:system-flag t) nil [21 39])
+            ("stdlib.h" include (:system-flag t) nil [40 59])
+            ("string.h" include (:system-flag t) nil [60 79])
+            ("FilePointer" type
+               (:members 
+                  ( ("ids" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol classsubparts) [104 115])
+                    ("size" variable (:type "int") (reparse-symbol classsubparts) [118 127]))                  
+                :type "struct")
+                nil [81 130])
+            ("get_ids" function
+               (:arguments 
+                  ( ("f" variable
+                       (:pointer 1
+                        :type ("FILE" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [159 168]))                  
+                :type ("FilePointer" type
+                     (:prototype t
+                      :type "struct")
+                      nil nil))
+                nil [132 694])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [705 714])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [715 728])
+                    ("envp" variable
+                       (:pointer 2
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [729 741]))                  
+                :type "int")
+                nil [696 1474]))          
+      :file "filter_fastq.c"
+      :pointmax 1475
+      :fsize 1474
+      :lastmodtime '(22479 15130 0 0)
+      :unmatched-syntax nil
+      :lexical-table 
+        '(("_GNU_SOURCE")
+          )
 ))
   :file "!Users!karthik!Documents!complete_pipelines!fastq_operations!semantic.cache"
   :semantic-tag-version "2.0"

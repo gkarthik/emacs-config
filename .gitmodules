@@ -13,3 +13,6 @@
 [submodule ".emacs.d/elpa/undo-tree"]
 	path = .emacs.d/elpa/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule "uuidgen-el"]
+	path = .emacs.d/uuidgen-el
+	url = https://github.com/kanru/uuidgen-el.git

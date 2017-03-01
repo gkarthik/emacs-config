@@ -40,7 +40,24 @@
       :pointmax 1174
       :fsize 1173
       :lastmodtime '(22508 16978 0 0)
-      :unmatched-syntax nil))
+      :unmatched-syntax nil)
+    (semanticdb-table "collapse_genus.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("pandas" include nil nil [1 20])
+            ("rank_values" variable nil nil [22 109])
+            ("get_genus_id" function (:arguments 
+              ( ("tax_df" variable nil (reparse-symbol function_parameters) [128 134])
+                ("id" variable nil (reparse-symbol function_parameters) [136 138]))              ) nil [111 390])
+            ("collapse_genes" function (:arguments 
+              ( ("df" variable nil (reparse-symbol function_parameters) [410 412])
+                ("path" variable nil (reparse-symbol function_parameters) [414 418]))              ) nil [391 1844])
+            ("if" code nil nil [1846 1981]))          
+      :file "collapse_genus.py"
+      :pointmax 1990
+      :fsize 1990
+      :lastmodtime '(22461 61369 0 0)
+      :unmatched-syntax '((RETURN 332 . 338) (IF 348 . 350) (ELSE 382 . 386))))
   :file "!Users!karthik!Documents!code!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

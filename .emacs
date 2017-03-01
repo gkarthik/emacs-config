@@ -117,8 +117,8 @@
 
 ;;Flycheck
 (package-install 'flycheck)
-(add-hook 'c-mode-hook #'flycheck-mode)
-(add-hook 'c++-mode-hook #'flycheck-mode)
+(add-hook 'c-mode-hook 'flycheck-mode)
+(add-hook 'c++-mode-hook 'flycheck-mode)
 
 ;; Display error and warning messages in minibuffer.
 (custom-set-variables
@@ -256,7 +256,6 @@
 (switch-to-buffer "*Org Agenda*")
 (split-window-vertically)
 (switch-to-buffer "*scratch*")
-(emojify-mode)
 (other-window 1)
 
 (org-babel-do-load-languages
@@ -273,13 +272,33 @@
 (setq debug-on-error t)
 
 ;;CEDET
-(load-file "~/.emacs.d/cedet/cedet-devel-load.el")
-(semantic-mode 1)
-(require 'semantic/ia)
-(require 'semantic/bovine/gcc)
-(global-ede-mode 1)                      ; Enable the Project management system
-(semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-(global-srecode-minor-mode 1)            ; Enable template insertion menu
+;; (eval-after-load "cc-mode"
+;;   '(progn
+;;      ))
+
+;; (load-file "~/.emacs.d/cedet/cedet-devel-load.el")
+
+;; ;; Add further minor-modes to be enabled by semantic-mode.
+;; ;; See doc-string of `semantic-default-submodes' for other things
+;; ;; you can use here.
+;; (add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
+;; (add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
+;; (add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
+
+;; ;; Enable Semantic
+;; (semantic-mode 1)
+
+;; ;; Enable EDE (Project Management) features
+;; (global-ede-mode 1)
+
+;; (require 'semantic/ia)
+;; (require 'semantic/bovine/gcc)
+;; (require 'semantic/sb)
+;; ;; (semantic-mode 1)
+;; ;; (global-ede-mode 1)                      ; Enable the Project management system
+;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
+
 
 ;;Compile
 (defun bury-compile-buffer-if-successful (buffer string)
@@ -314,28 +333,12 @@
 (defvar persistent-scratch-filename 
     "~/.emacs-persistent-scratch"
     "Location of *scratch* file contents for persistent-scratch.")
-(defvar persistent-scratch-backup-directory 
-    "~/.emacs-persistent-scratch-backups/"
-    "Location of backups of the *scratch* buffer contents for
-    persistent-scratch.")
-
-(defun make-persistent-scratch-backup-name ()
-  "Create a filename to backup the current scratch file by
-  concatenating PERSISTENT-SCRATCH-BACKUP-DIRECTORY with the
-  current date and time."
-  (concat 
-   persistent-scratch-backup-directory 
-   (replace-regexp-in-string 
-     (regexp-quote " ") "-" (current-time-string))))
 
 (defun save-persistent-scratch ()
   "Write the contents of *scratch* to the file name
   PERSISTENT-SCRATCH-FILENAME, making a backup copy in
   PERSISTENT-SCRATCH-BACKUP-DIRECTORY."
   (with-current-buffer (get-buffer "*scratch*")
-    (if (file-exists-p persistent-scratch-filename)
-        (copy-file persistent-scratch-filename
-                   (make-persistent-scratch-backup-name)))
     (write-region (point-min) (point-max) 
                   persistent-scratch-filename)))
 
@@ -360,11 +363,11 @@
 (add-hook 'javascript-mode-hook #'rainbow-delimiters-mode)
 
 ;; Rainbow identifiers
-(add-hook 'clojure-mode-hook #'rainbow-identifiers-mode)
-(add-hook 'python-mode-hook #'rainbow-identifiers-mode)
-(add-hook 'c-mode-hook #'rainbow-identifiers-mode)
-(add-hook 'c++-mode-hook #'rainbow-identifiers-mode)
-(add-hook 'javascript-mode-hook #'rainbow-identifiers-mode)
+;; (add-hook 'clojure-mode-hook #'rainbow-identifiers-mode)
+;; (add-hook 'python-mode-hook #'rainbow-identifiers-mode)
+;; (add-hook 'c-mode-hook #'rainbow-identifiers-mode)
+;; (add-hook 'c++-mode-hook #'rainbow-identifiers-mode)
+;; (add-hook 'javascript-mode-hook #'rainbow-identifiers-mode)
 
 ;; Rainbow Blocks
 (require 'rainbow-blocks)
@@ -373,3 +376,24 @@
 (add-hook 'c-mode-hook 'rainbow-blocks-mode)
 (add-hook 'c++-mode-hook 'rainbow-blocks-mode)
 (add-hook 'javascript-mode-hook 'rainbow-blocks-mode)
+
+;; Docker
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+;; Use "docker-machine env box" command to find out your environment variables
+;; (setenv "DOCKER_TLS_VERIFY" "1")
+;; (setenv "DOCKER_HOST" "tcp://10.11.12.13:2376")
+;; (setenv "DOCKER_CERT_PATH" "/Users/karthik/.docker/machine/machines/box")
+;; (setenv "DOCKER_MACHINE_NAME" "box")
+
+;;UUIDGEN
+(load-file "~/.emacs.d/uuidgen-el/uuidgen.el") 
+
+;;YaSnippet
+(yas-reload-all)
+(add-hook 'python-mode-hook 'yas-minor-mode)
+(add-hook 'js-mode-hook 'yas-minor-mode)
+(add-hook 'sh-mode-hook 'yas-minor-mode)
+
+;; Twitter
+(require 'twittering-mode)

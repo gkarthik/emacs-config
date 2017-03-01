@@ -19,6 +19,7 @@
 	autopair-insert-opening
 	autopair-insert-or-skip-quote
 	autopair-skip-close-maybe
+	ess-smart-comma
 	org-beginning-of-line
 	org-end-of-line
 	org-force-self-insert
