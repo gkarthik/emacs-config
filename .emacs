@@ -186,7 +186,8 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/personal.org"))
+                             "~/org/personal.org"
+			     "~/org/toread.org"))
 
 ;; Magit shortcuts				;
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -397,3 +398,24 @@
 
 ;; Twitter
 (require 'twittering-mode)
+
+;; compile commands
+(defun my-c-mode ()
+  (setq get-buffer-compile-command
+	(lambda (file)
+	  (cons (format "gcc -Wall  -o %s %s && ./%s"
+			(file-name-sans-extension file)
+			file
+			(file-name-sans-extension file))
+		11))))
+(add-hook 'c-mode-hook 'my-c-mode)
+
+(defun my-c++-mode ()
+  (setq get-buffer-compile-command
+	(lambda (file)
+	  (cons (format "g++ -Wall  -o %s %s && ./%s"
+			(file-name-sans-extension file)
+			file
+			(file-name-sans-extension file))
+		11))))
+(add-hook 'c++-mode-hook 'my-c++-mode)
