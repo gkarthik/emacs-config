@@ -43,7 +43,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/angularjs-mode/ac-dict")
 (add-to-list 'ac-modes 'angular-mode)
 (add-to-list 'ac-modes 'angular-html-mode)
-(global-auto-complete-mode t)
+;; (global-auto-complete-mode t)
 
 ;;(setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
 
@@ -93,58 +93,16 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/sr-speedbar")
 (require 'sr-speedbar)
 
-(add-to-list 'load-path "~/.emacs.d/elpa/flymake-python-pyflakes-0.9/")
-(add-to-list 'load-path "~/.emacs.d/elpa/flymake-easy-0.10/")
-;; Load Flymake
-(require 'flymake)
-;; Load Flymake-python
-(require 'flymake-python-pyflakes)
-;; Activate it each time python mode is turned on
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-
-;; Control-c n    next error
-(global-set-key (kbd "C-c n") 'flymake-goto-next-error)
-;; Control-c p    previous error
-(global-set-key (kbd "C-c p") 'flymake-goto-prev-error)
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(flymake-errline ((((class color)) (:underline "red"))))
- '(flymake-warnline ((((class color)) (:underline "yellow")))))
-
 ;;Flycheck
-(package-install 'flycheck)
-(add-hook 'c-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook 'flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(setq-default flycheck-disabled-checkers '(c/c++-clang))
 
-;; Display error and warning messages in minibuffer.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(help-at-pt-display-when-idle (quote (flymake-overlay)) nil (help-at-pt))
- '(help-at-pt-timer-delay 0.5)
- '(python-shell-buffer-name "Python"))
-
-	;;; jedi completion
-	;;; see https://github.com/tkf/emacs-jedi
-
-(add-to-list 'load-path (expand-file-name
-			 "~/.emacs.d/elpa/jedi"))
-(require 'jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)                 ; optional
-
-(setq python-python-command "/urs/local/bin/python3")
+(setq python-python-command "/urs/local/bin/python3.6")
 
 (autoload 'comint-dynamic-complete-filename "comint" nil t)
 (global-set-key "\M-]" 'comint-dynamic-complete-filename)
 
-(setq python-shell-interpreter "python3")
+(setq python-shell-interpreter "python3.6")
 (add-to-list 'load-path "~/.emacs.d/isend-mode")
 (require 'isend)
 
@@ -198,9 +156,6 @@
 ;;Graphviz
 (load-file "~/.emacs.d/graphviz-dot-mode/graphviz-dot-mode.el") 
 
-(add-hook 'term-mode-hook (lambda()
-                (yas-minor-mode -1)))
-
 ;;Render ASCII
 (require 'ansi-color)
 (defun display-ansi-colors ()
@@ -211,14 +166,10 @@
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 (add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
-(eval-after-load 'tern
-   '(progn
-      (require 'tern-auto-complete)
-      (tern-ac-setup)))
 
-;;Js Indent
+;;Indent
 (setq js-indent-level 2)
+(setq python-indent-level 2)
 
 ;;Show Paren Mode On
 (show-paren-mode 1)
@@ -271,35 +222,6 @@
 
 ;;Show entire debug on error
 (setq debug-on-error t)
-
-;;CEDET
-;; (eval-after-load "cc-mode"
-;;   '(progn
-;;      ))
-
-;; (load-file "~/.emacs.d/cedet/cedet-devel-load.el")
-
-;; ;; Add further minor-modes to be enabled by semantic-mode.
-;; ;; See doc-string of `semantic-default-submodes' for other things
-;; ;; you can use here.
-;; (add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode t)
-;; (add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode t)
-;; (add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
-
-;; ;; Enable Semantic
-;; (semantic-mode 1)
-
-;; ;; Enable EDE (Project Management) features
-;; (global-ede-mode 1)
-
-;; (require 'semantic/ia)
-;; (require 'semantic/bovine/gcc)
-;; (require 'semantic/sb)
-;; ;; (semantic-mode 1)
-;; ;; (global-ede-mode 1)                      ; Enable the Project management system
-;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
-;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
-
 
 ;;Compile
 (defun bury-compile-buffer-if-successful (buffer string)
@@ -363,13 +285,6 @@
 (add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'javascript-mode-hook #'rainbow-delimiters-mode)
 
-;; Rainbow identifiers
-;; (add-hook 'clojure-mode-hook #'rainbow-identifiers-mode)
-;; (add-hook 'python-mode-hook #'rainbow-identifiers-mode)
-;; (add-hook 'c-mode-hook #'rainbow-identifiers-mode)
-;; (add-hook 'c++-mode-hook #'rainbow-identifiers-mode)
-;; (add-hook 'javascript-mode-hook #'rainbow-identifiers-mode)
-
 ;; Rainbow Blocks
 (require 'rainbow-blocks)
 (add-hook 'clojure-mode-hook 'rainbow-blocks-mode)
@@ -395,6 +310,8 @@
 (add-hook 'python-mode-hook 'yas-minor-mode)
 (add-hook 'js-mode-hook 'yas-minor-mode)
 (add-hook 'sh-mode-hook 'yas-minor-mode)
+(add-hook 'C++-mode-hook 'yas-minor-mode)
+(add-hook 'C-mode-hook 'yas-minor-mode)
 
 ;; Twitter
 (require 'twittering-mode)
@@ -419,3 +336,70 @@
 			(file-name-sans-extension file))
 		11))))
 (add-hook 'c++-mode-hook 'my-c++-mode)
+
+;; Bitlbee
+(load-file "~/.emacs.d/bitlbee.el") 
+(require 'bitlbee)
+
+(add-hook 'python-mode-hook 'company-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'js-mode-hook 'company-mode)
+(add-hook 'R-mode-hook 'company-mode)
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)))
+
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+     (define-key company-active-map (kbd "<backtab>") 'company-select-previous)))
+
+(setq company-frontends
+      '(company-pseudo-tooltip-unless-just-one-frontend
+        company-preview-frontend
+        company-echo-metadata-frontend))
+
+(setq company-require-match 'never)
+
+(setq company-auto-complete t)
+
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+
+(defun my/js-mode-hook ()
+  (add-to-list 'company-backends 'company-tern))
+
+(defun my/c++-mode-hook ()
+  (add-to-list 'company-backends 'company-irony))
+
+(defun my/R-mode-hook ()
+  (add-to-list 'company-backends 'company-ess-backend))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'js-mode-hook 'my/js-mode-hook)
+(add-hook 'c++-mode-hook 'my/c++-mode-hook)
+(add-hook 'R-mode-hook 'my/R-mode-hook)
+
+(setq flycheck-c/c++-gcc-executable "/usr/local/bin/gcc-6")
+(setq flycheck-clang-language-standard "c++11")
+
+(global-set-key (kbd "C-c q") 'company-complete)
+
+
+;; Company color
+(require 'color)
+
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
+
+(company-quickhelp-mode 1)
+(eval-after-load 'company
+  '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))

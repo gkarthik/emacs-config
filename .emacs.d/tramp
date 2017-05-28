@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <17/05/08 16:43:01 /Users/karthik/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <17/05/27 20:31:26 /Users/karthik/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -159,6 +159,26 @@
   ("tmpdir" "/ssh:gkarthik@hpcdata.scripps.edu:/tmp")
   ("touch-t" t)
   ("touch" "\\touch"))
+ (["ssh" "gkarthik" "login01.scripps.edu" nil nil]
+  ("locale" "LC_ALL=en_US.utf8")
+  ("uname" "Linux 2.6.32-573.12.1.el6.x86_64")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("stat" "\\stat")
+  ("file-exists" "test -e")
+  ("ls" "/bin/ls --color=never")
+  ("id" "/usr/bin/id")
+  ("gid-string" "grads")
+  ("ls-dired" t)
+  ("gid-integer" 40002)
+  ("~" "/gpfs/home/gkarthik")
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("readlink" "\\readlink")
+  ("git" "\\git"))
  (["ssh" "gkarthik" "garibaldi.scripps.edu" nil nil]
   ("locale" "LC_ALL=en_US.utf8")
   ("uname" "Linux 2.6.34-12-desktop")
@@ -170,8 +190,6 @@
   ("file-exists" "test -e")
   ("id" "/usr/bin/id")
   ("gid-string" "grads")
-  ("ls" "/bin/ls --color=never")
-  ("ls-dired" t)
   ("gid-integer" 40002)
   ("~" "/gpfs/home/gkarthik")
   ("perl-file-spec" t)
@@ -179,25 +197,5 @@
   ("perl" "\\perl")
   ("readlink" "\\readlink")
   ("git" "\\git")
-  ("uid-integer" 25086)
-  ("tmpdir" "/ssh:gkarthik@garibaldi.scripps.edu:/tmp")
-  ("touch-t" t)
-  ("touch" "\\touch"))
- (["ssh" "gkarthik" "login01.scripps.edu" nil nil]
-  ("locale" "LC_ALL=en_US.utf8")
-  ("uname" "Linux 2.6.32-573.12.1.el6.x86_64")
-  ("test" "test")
-  ("remote-path"
-   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
-  ("remote-shell" "/bin/sh")
-  ("stat" "\\stat")
-  ("file-exists" "test -e")
-  ("id" "/usr/bin/id")
-  ("gid-string" "grads")
   ("ls" "/bin/ls --color=never")
-  ("ls-dired" t)
-  ("gid-integer" 40002)
-  ("perl-file-spec" t)
-  ("perl-cwd-realpath" t)
-  ("perl" "\\perl")
-  ("~" "/gpfs/home/gkarthik")))
+  ("ls-dired" t)))
