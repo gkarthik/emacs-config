@@ -420,3 +420,8 @@
    (quote
     (uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor jedi image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair)))
  '(whitespace-line-column 300))
+
+;;; R modes
+(add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
