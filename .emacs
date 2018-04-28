@@ -5,47 +5,23 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(global-whitespace-mode t)
+
 ;; Open agenda in current window
 (setq org-agenda-window-setup 'current-window)
-
-;;Maximize on startup
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
-
-(require 'package) ;; You might already have this line
-(add-to-list 'package-archives
-	     '("melpa" . "https://stable.melpa.org/packages/"))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
-
-(add-to-list 'load-path "~/.emacs.d/elpa/auto-complete-1.5.1")    ; This may not be appeared if you have already added.
-(require 'auto-complete)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-;;(ac-config-default)
-(setq ac-delay 0.1) ;; eclipse uses 500ms
-;; set default sources
-(setq ac-sources
-      (append '(ac-source-features
-		ac-source-functions
-		ac-source-yasnippet
-		ac-source-variables
-		ac-source-filename
-		ac-source-symbols
-		ac-source-words-in-same-mode-buffer
-		ac-source-semantic)
-	      ac-sources))
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/angularjs-mode/ac-dict")
-(add-to-list 'ac-modes 'angular-mode)
-(add-to-list 'ac-modes 'angular-html-mode)
-;; (global-auto-complete-mode t)
-
-;;(setq ac-sources '(ac-source-symbols ac-source-words-in-same-mode-buffers))
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -77,7 +53,7 @@
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 
-(helm-mode 1)
+;; (helm-mode 1)
 
 ;; (require 'powerline)
 
@@ -97,14 +73,20 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq-default flycheck-disabled-checkers '(c/c++-clang))
 
-(setq python-python-command "/urs/local/bin/python3.6")
+(setq python-python-command "/urs/local/bin/python3")
 
-(autoload 'comint-dynamic-complete-filename "comint" nil t)
-(global-set-key "\M-]" 'comint-dynamic-complete-filename)
+;; (autoload 'comint-dynamic-complete-filename "comint" nil t)
+;; (global-set-key "\M-]" 'comint-dynamic-complete-filename)
 
-(setq python-shell-interpreter "python3.6")
+(setq python-shell-interpreter "/usr/local/bin/python3")
 (add-to-list 'load-path "~/.emacs.d/isend-mode")
 (require 'isend)
+(add-hook 'isend-mode-hook 'isend-default-shell-setup)
+(add-hook 'isend-mode-hook 'isend-default-python-setup)
+(setq isend-skip-empty-lines nil)
+(setq isend-strip-empty-lines nil)
+(setq isend-delete-indentation nil)
+(setq isend-end-with-empty-line t)
 
 (add-to-list 'load-path "~/.emacs.d/multi-term")
 (require 'multi-term)
@@ -129,14 +111,31 @@
 (global-set-key "\C-xo" 'win-switch-dispatch)
 (win-switch-setup-keys-ijkl "\C-xo" "\C-x\C-o")
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
-(load-theme 'solarized t)
-(set-frame-parameter nil 'background-mode 'dark)
-(enable-theme 'solarized)
+;; Theme
+(load-theme 'solarized-dark t)
+
+;; Smart mode line
+;; These two lines are just examples
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+
+;; make the fringe stand out from the background
+(setq solarized-distinct-fringe-background t)
+
+;; Don't change the font for some headings and titles
+(setq solarized-use-variable-pitch nil)
+
+;; make the modeline high contrast
+;; (setq solarized-high-contrast-mode-line t)
 
 (add-to-list 'load-path "~/.emacs.d/shell-current-directory/")
 (require 'shell-current-directory)
 (put 'erase-buffer 'disabled nil)
+
+;; Org ditaa export
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
 
 ;; Org Mode configuration
 (require 'org)
@@ -240,16 +239,6 @@
                       buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 
-(defun sudired ()
-  (interactive)
-  (require 'tramp)
-  (let ((dir (expand-file-name default-directory)))
-    (if (string-match "^/sudo:" dir)
-        (user-error "Already in sudo")
-      (dired (concat "/sudo::" dir)))))
-(define-key dired-mode-map "!" 'sudired)
-
-
 ;;Persistent Scratch Buffer
 ;; Source : https://dorophone.blogspot.fr/2011/11/how-to-make-emacs-scratch-buffer.html
 
@@ -278,43 +267,15 @@
 
 (push #'save-persistent-scratch kill-emacs-hook)
 
-;; Rainbow delimiter
-(add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'python-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'c-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'c++-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'javascript-mode-hook #'rainbow-delimiters-mode)
-
-;; Rainbow Blocks
-(require 'rainbow-blocks)
-(add-hook 'clojure-mode-hook 'rainbow-blocks-mode)
-(add-hook 'python-mode-hook 'rainbow-blocks-mode)
-(add-hook 'c-mode-hook 'rainbow-blocks-mode)
-(add-hook 'c++-mode-hook 'rainbow-blocks-mode)
-(add-hook 'javascript-mode-hook 'rainbow-blocks-mode)
-
-;; Docker
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
-;; Use "docker-machine env box" command to find out your environment variables
-;; (setenv "DOCKER_TLS_VERIFY" "1")
-;; (setenv "DOCKER_HOST" "tcp://10.11.12.13:2376")
-;; (setenv "DOCKER_CERT_PATH" "/Users/karthik/.docker/machine/machines/box")
-;; (setenv "DOCKER_MACHINE_NAME" "box")
-
 ;;UUIDGEN
 (load-file "~/.emacs.d/uuidgen-el/uuidgen.el") 
 
 ;;YaSnippet
-(yas-reload-all)
 (add-hook 'python-mode-hook 'yas-minor-mode)
 (add-hook 'js-mode-hook 'yas-minor-mode)
 (add-hook 'sh-mode-hook 'yas-minor-mode)
 (add-hook 'C++-mode-hook 'yas-minor-mode)
 (add-hook 'C-mode-hook 'yas-minor-mode)
-
-;; Twitter
-(require 'twittering-mode)
 
 ;; compile commands
 (defun my-c-mode ()
@@ -342,9 +303,13 @@
 (require 'bitlbee)
 
 (add-hook 'python-mode-hook 'company-mode)
+(add-hook 'c-mode-hook 'company-mode)
 (add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'js-mode-hook 'company-mode)
 (add-hook 'R-mode-hook 'company-mode)
+(add-hook 'org-mode-hook 'company-mode)
+(add-hook 'emacs-lisp-mode-hook 'company-mode)
+(add-hook 'sh-mode-hook 'company-mode)
 
 (eval-after-load 'company
   '(progn
@@ -365,6 +330,17 @@
 
 (setq company-auto-complete t)
 
+;; set default `company-backends'
+(setq company-backends
+      '((company-files          ; files & directory
+         company-keywords       ; keywords
+         company-capf
+         company-yasnippet
+         )
+        (company-abbrev company-dabbrev)
+        ))
+
+
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-jedi))
 
@@ -377,29 +353,70 @@
 (defun my/R-mode-hook ()
   (add-to-list 'company-backends 'company-ess-backend))
 
+(eval-after-load "shell"
+  '(define-key shell-mode-map (kbd "TAB") #'company-complete))
+
+
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 (add-hook 'js-mode-hook 'my/js-mode-hook)
 (add-hook 'c++-mode-hook 'my/c++-mode-hook)
 (add-hook 'R-mode-hook 'my/R-mode-hook)
+(add-hook 'shell-mode-hook #'company-mode)
 
 (setq flycheck-c/c++-gcc-executable "/usr/local/bin/gcc-6")
 (setq flycheck-clang-language-standard "c++11")
 
 (global-set-key (kbd "C-c q") 'company-complete)
 
-
 ;; Company color
-(require 'color)
-
-(let ((bg (face-attribute 'default :background)))
-  (custom-set-faces
-   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+'(company-template-field ((t (:background ,yellow :foreground ,base02))))
+'(company-echo-common ((t (:inherit company-echo :underline t))))
+'(company-tooltip ((t (:background ,base02 :foreground ,cyan))))
+'(company-tooltip-selection ((t (:background ,cyan-lc :foreground ,cyan-hc))))
+'(company-tooltip-mouse ((t (:background ,cyan-hc :foreground ,cyan-lc))))
+'(company-tooltip-common ((t (:foreground ,base1 :underline t))))
+'(company-tooltip-common-selection ((t (:foreground ,base1 :underline t))))
+'(company-tooltip-annotation ((t (:foreground ,base1 :background ,base02))))
+'(company-scrollbar-fg ((t (:foreground ,base03 :background ,base0))))
+'(company-scrollbar-bg ((t (:background ,base02 :foreground ,cyan))))
+'(company-preview ((t (:background ,base02 :foreground ,cyan))))
+'(company-preview-common ((t (:foreground ,base1 :underline t))))
+'(company-preview-search ((t (:inherit company-preview :slant italic))))
 
 
 (company-quickhelp-mode 1)
 (eval-after-load 'company
   '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+
+;; Remote crontab edit
+(defun crontab-e ()
+    (interactive)
+    (with-editor-async-shell-command "crontab -e"))
+;; Docker
+;; (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+;; (setq exec-path (append exec-path '("/usr/local/bin")))
+;; ;; Use "docker-machine env box" command to find out your environment variables
+;; (setenv "DOCKER_TLS_VERIFY" "1")
+;; (setenv "DOCKER_HOST" "tcp://10.11.12.13:2376")
+;; (setenv "DOCKER_CERT_PATH" "/Users/karthik/.docker/machine/machines/box")
+;; (setenv "DOCKER_MACHINE_NAME" "box")
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Tex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-save-query nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor jedi image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair)))
+ '(whitespace-line-column 300))
