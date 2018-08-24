@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <18/04/26 23:27:30 /Users/karthik/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <18/08/23 11:01:20 /Users/karthik/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -26,4 +26,46 @@
   ("uid-integer" 25086)
   ("tmpdir" "/tmp")
   ("touch-t" t)
-  ("touch" "\\touch")))
+  ("touch" "\\touch"))
+ (["ssh" "karthik" "172.29.228.241" nil nil]
+  ("uname" "Linux 4.4.0-133-generic")
+  ("locale" "LC_ALL=en_US.utf8")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("~" "/home/karthik")
+  ("file-exists" "test -e")
+  ("stat" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("id" "/usr/bin/id")
+  ("gid-integer" 1001)
+  ("gid-string" "karthik")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("readlink" "\\readlink")
+  ("git" "\\git")
+  ("uid-integer" 1001)
+  ("tmpdir" "/tmp")
+  ("touch-t" t)
+  ("touch" "\\touch"))
+ (["ssh" "gk" "172.29.231.214" nil nil]
+  ("uname" "Linux 4.4.0-131-generic")
+  ("locale" "LC_ALL=en_US.utf8")
+  ("test" "test")
+  ("remote-path"
+   ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
+  ("remote-shell" "/bin/sh")
+  ("stat" nil)
+  ("perl-file-spec" t)
+  ("perl-cwd-realpath" t)
+  ("perl" "\\perl")
+  ("id" "/usr/bin/id")
+  ("gid-string" "gk")
+  ("ls" "/bin/ls --color=never")
+  ("ls-dired" t)
+  ("gid-integer" 1000)
+  ("readlink" "\\readlink")
+  ("~" "/home/gk")))

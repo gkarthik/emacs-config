@@ -7,6 +7,10 @@
 
 (global-whitespace-mode t)
 
+;; windmovw
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+
 ;; Open agenda in current window
 (setq org-agenda-window-setup 'current-window)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -73,12 +77,12 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq-default flycheck-disabled-checkers '(c/c++-clang))
 
-(setq python-python-command "/urs/local/bin/python3")
+(setq python-python-command "/urs/local/bin/python3.6")
 
 ;; (autoload 'comint-dynamic-complete-filename "comint" nil t)
 ;; (global-set-key "\M-]" 'comint-dynamic-complete-filename)
 
-(setq python-shell-interpreter "/usr/local/bin/python3")
+(setq python-shell-interpreter "/usr/local/bin/python3.6")
 (add-to-list 'load-path "~/.emacs.d/isend-mode")
 (require 'isend)
 (add-hook 'isend-mode-hook 'isend-default-shell-setup)
@@ -91,9 +95,6 @@
 (add-to-list 'load-path "~/.emacs.d/multi-term")
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
-
-(add-to-list 'load-path "~/.emacs.d/list-process-plus")
-(autoload 'list-processes+ "A enhance list processes command" t)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -153,7 +154,7 @@
 (setq initial-major-mode 'org-mode)
 
 ;;Graphviz
-(load-file "~/.emacs.d/graphviz-dot-mode/graphviz-dot-mode.el") 
+(load-file "~/.emacs.d/graphviz-dot-mode/graphviz-dot-mode.el")
 
 ;;Render ASCII
 (require 'ansi-color)
@@ -169,6 +170,7 @@
 ;;Indent
 (setq js-indent-level 2)
 (setq python-indent-level 2)
+(setq c++-indent-level 2)
 
 ;;Show Paren Mode On
 (show-paren-mode 1)
@@ -268,7 +270,7 @@
 (push #'save-persistent-scratch kill-emacs-hook)
 
 ;;UUIDGEN
-(load-file "~/.emacs.d/uuidgen-el/uuidgen.el") 
+(load-file "~/.emacs.d/uuidgen-el/uuidgen.el")
 
 ;;YaSnippet
 (add-hook 'python-mode-hook 'yas-minor-mode)
@@ -276,6 +278,7 @@
 (add-hook 'sh-mode-hook 'yas-minor-mode)
 (add-hook 'C++-mode-hook 'yas-minor-mode)
 (add-hook 'C-mode-hook 'yas-minor-mode)
+(add-hook 'R-mode-hook 'yas-minor-mode)
 
 ;; compile commands
 (defun my-c-mode ()
@@ -297,10 +300,6 @@
 			(file-name-sans-extension file))
 		11))))
 (add-hook 'c++-mode-hook 'my-c++-mode)
-
-;; Bitlbee
-(load-file "~/.emacs.d/bitlbee.el") 
-(require 'bitlbee)
 
 (add-hook 'python-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'company-mode)
@@ -416,12 +415,37 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-export-with-toc 0)
  '(package-selected-packages
    (quote
-    (uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor jedi image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair)))
+    (popup-kill-ring yasnippet-snippets pomidor uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor jedi image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair)))
  '(whitespace-line-column 300))
 
 ;;; R modes
 (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+
+(add-hook 'c-mode-common-hook
+	(lambda ()
+  (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+  	(ggtags-mode 1))))
+
+;; Pomidor
+(setq pomidor-sound-tick nil
+      pomidor-sound-tack nil
+      pomidor-sound-overwork nil
+      pomidor-sound-break-over nil
+      )
+
+;; Babel
+;; active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)
+   ))
+
+;; org-mind-map
+(add-to-list 'load-path "~/.emacs.d/org-mind-map")
+(require 'ox-org)
+(require 'org-mind-map)

@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	c-electric-star
 	end-of-buffer
 	keyboard-escape-quit
 	kill-region

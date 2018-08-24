@@ -1,5 +1,7 @@
 (
- (:id "sha1:85b31c268009209a8d3c5387033b219264f7e62b" :fingerprint "sha1:f8:e1:fc:e4:34:8e:19:e8:48:c1:61:fe:3d:09:dd:d4:d2:7a:cb:db" :host "melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
- (:id "sha1:ccfd2cc2a08c89a9b10969be8c1e926954d53e28" :fingerprint "sha1:b2:85:5c:6f:45:23:d5:88:0e:82:ee:17:b9:eb:c1:88:ed:50:84:44" :host "stable.melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:ccfd2cc2a08c89a9b10969be8c1e926954d53e28" :fingerprint "sha1:1f:8f:9d:5a:d6:fb:04:c1:1f:5d:2a:00:3c:31:90:36:9f:2a:bd:56" :host "stable.melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:85b31c268009209a8d3c5387033b219264f7e62b" :fingerprint "sha1:1f:8f:9d:5a:d6:fb:04:c1:1f:5d:2a:00:3c:31:90:36:9f:2a:bd:56" :host "melpa.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:c94c54a560d5a3b1154e4ffec3285efed0d8e3c7" :fingerprint "sha1:6f:42:ff:0e:58:e9:b2:a2:7f:79:f6:81:20:d5:55:e1:5e:51:0d:0a" :host "bioconductor.org:443" :conditions (:insecure :unknown-ca :invalid))
+ (:id "sha1:4c4bbf68801de341a54ea4c98e58c08e6d81bd51" :fingerprint "sha1:7e:82:21:9c:82:3a:7e:c7:cd:35:67:34:39:6a:f0:e7:e4:4f:63:3a" :host "duckduckgo.com:443" :conditions (:insecure :unknown-ca :invalid))
  (:id "sha1:24c7a1e6369fef1e50de1deb1a9e5bbc68f80c8b" :fingerprint "sha1:fe:3b:22:d5:9b:33:20:74:3c:0d:7e:d2:7d:71:41:5d:84:e7:ca:82" :host "orgmode.org:443" :conditions (:insecure :unknown-ca :invalid))
 )
