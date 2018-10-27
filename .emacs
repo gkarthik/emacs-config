@@ -5,7 +5,11 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(global-whitespace-mode t)
+(global-whitespace-mode 1)
+(setq whitespace-line-column 500)
+(setq whitespace-style (quote
+  (face spaces newline space-mark tab-mark newline-mark)))
+(add-hook 'after-save-hook 'whitespace-cleanup)
 
 ;; windmovw
 (when (fboundp 'windmove-default-keybindings)
@@ -17,7 +21,7 @@
 
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                    (not (gnutls-available-p))))
+		    (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
@@ -102,9 +106,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; (require 'smartparens-config)
-;; (add-hook 'js-mode-hook 'smartparens-mode)
-
 (require 'wrap-region)
 (setq wrap-region-mode t)
 
@@ -144,10 +145,10 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/personal.org"
+			     "~/org/personal.org"
 			     "~/org/toread.org"))
 
-;; Magit shortcuts				;
+;; Magit shortcuts
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;;Scratch Mode
@@ -231,20 +232,20 @@
        (string-match "compilation" (buffer-name buffer))
        (string-match "finished" string)
        (not
-        (with-current-buffer buffer
-          (goto-char (point-min))
-          (search-forward "warning" nil t))))
+	(with-current-buffer buffer
+	  (goto-char (point-min))
+	  (search-forward "warning" nil t))))
       (run-with-timer 1 nil
-                      (lambda (buf)
-                        (bury-buffer buf)
-                        (switch-to-prev-buffer (get-buffer-window buf) 'kill))
-                      buffer)))
+		      (lambda (buf)
+			(bury-buffer buf)
+			(switch-to-prev-buffer (get-buffer-window buf) 'kill))
+		      buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 
 ;;Persistent Scratch Buffer
 ;; Source : https://dorophone.blogspot.fr/2011/11/how-to-make-emacs-scratch-buffer.html
 
-(defvar persistent-scratch-filename 
+(defvar persistent-scratch-filename
     "~/.emacs-persistent-scratch"
     "Location of *scratch* file contents for persistent-scratch.")
 
@@ -253,16 +254,16 @@
   PERSISTENT-SCRATCH-FILENAME, making a backup copy in
   PERSISTENT-SCRATCH-BACKUP-DIRECTORY."
   (with-current-buffer (get-buffer "*scratch*")
-    (write-region (point-min) (point-max) 
-                  persistent-scratch-filename)))
+    (write-region (point-min) (point-max)
+		  persistent-scratch-filename)))
 
 (defun load-persistent-scratch ()
   "Load the contents of PERSISTENT-SCRATCH-FILENAME into the
   scratch buffer, clearing its contents first."
   (if (file-exists-p persistent-scratch-filename)
       (with-current-buffer (get-buffer "*scratch*")
-        (delete-region (point-min) (point-max))
-        (shell-command (format "cat %s" persistent-scratch-filename) (current-buffer))))
+	(delete-region (point-min) (point-max))
+	(shell-command (format "cat %s" persistent-scratch-filename) (current-buffer))))
   )
 
 (load-persistent-scratch)
@@ -322,8 +323,8 @@
 
 (setq company-frontends
       '(company-pseudo-tooltip-unless-just-one-frontend
-        company-preview-frontend
-        company-echo-metadata-frontend))
+	company-preview-frontend
+	company-echo-metadata-frontend))
 
 (setq company-require-match 'never)
 
@@ -332,12 +333,12 @@
 ;; set default `company-backends'
 (setq company-backends
       '((company-files          ; files & directory
-         company-keywords       ; keywords
-         company-capf
-         company-yasnippet
-         )
-        (company-abbrev company-dabbrev)
-        ))
+	 company-keywords       ; keywords
+	 company-capf
+	 company-yasnippet
+	 )
+	(company-abbrev company-dabbrev)
+	))
 
 
 (defun my/python-mode-hook ()
@@ -418,8 +419,7 @@
  '(org-export-with-toc 0)
  '(package-selected-packages
    (quote
-    (popup-kill-ring yasnippet-snippets pomidor uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor jedi image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair)))
- '(whitespace-line-column 300))
+    (jedi swiper-helm fringe-helper git-gutter-fringe+ jsonnet-mode sparql-mode popup-kill-ring yasnippet-snippets pomidor uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair))))
 
 ;;; R modes
 (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
@@ -427,9 +427,11 @@
 (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
 
 (add-hook 'c-mode-common-hook
-	(lambda ()
-  (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-  	(ggtags-mode 1))))
+	  (lambda ()
+	    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+	      (ggtags-mode 1))))
+
+(add-hook 'js-mode-hook 'ggtags-mode 1)
 
 ;; Pomidor
 (setq pomidor-sound-tick nil
@@ -449,3 +451,15 @@
 (add-to-list 'load-path "~/.emacs.d/org-mind-map")
 (require 'ox-org)
 (require 'org-mind-map)
+
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; Git Gutter
+(require 'git-gutter-fringe+)
+(add-hook 'python-mode-hook 'git-gutter+-mode)
+(add-hook 'c-mode-hook 'git-gutter+-mode)
+(add-hook 'c++-mode-hook 'git-gutter+-mode)
+(add-hook 'js-mode-hook 'git-gutter+-mode)
+(add-hook 'R-mode-hook 'git-gutter+-mode)
+(add-hook 'markdown-mode-hook 'git-gutter+-mode)
+(add-hook 'latex-mode-hook 'git-gutter+-mode)
