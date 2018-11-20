@@ -4,6 +4,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+;; To remove scan error for package install
+(setq coding-system-for-read 'utf-8)
 
 (global-whitespace-mode 1)
 (setq whitespace-line-column 500)
@@ -31,6 +33,7 @@
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+;; For MacOS
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -163,6 +166,11 @@
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
 
+;; Show prompt colors in shell-mode
+(add-hook 'shell-mode-hook
+      (lambda ()
+        (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
+
 ;;JS Mode
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
@@ -281,27 +289,6 @@
 (add-hook 'C-mode-hook 'yas-minor-mode)
 (add-hook 'R-mode-hook 'yas-minor-mode)
 
-;; compile commands
-(defun my-c-mode ()
-  (setq get-buffer-compile-command
-	(lambda (file)
-	  (cons (format "gcc -Wall  -o %s %s && ./%s"
-			(file-name-sans-extension file)
-			file
-			(file-name-sans-extension file))
-		11))))
-(add-hook 'c-mode-hook 'my-c-mode)
-
-(defun my-c++-mode ()
-  (setq get-buffer-compile-command
-	(lambda (file)
-	  (cons (format "g++ -Wall  -o %s %s && ./%s"
-			(file-name-sans-extension file)
-			file
-			(file-name-sans-extension file))
-		11))))
-(add-hook 'c++-mode-hook 'my-c++-mode)
-
 (add-hook 'python-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'company-mode)
 (add-hook 'c++-mode-hook 'company-mode)
@@ -365,6 +352,8 @@
 
 (setq flycheck-c/c++-gcc-executable "/usr/local/bin/gcc-6")
 (setq flycheck-clang-language-standard "c++11")
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 (global-set-key (kbd "C-c q") 'company-complete)
 
@@ -419,7 +408,7 @@
  '(org-export-with-toc 0)
  '(package-selected-packages
    (quote
-    (jedi swiper-helm fringe-helper git-gutter-fringe+ jsonnet-mode sparql-mode popup-kill-ring yasnippet-snippets pomidor uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair))))
+    (doom-modeline flycheck-irony flycheck-pkg-config gnuplot-mode jedi swiper-helm fringe-helper git-gutter-fringe+ jsonnet-mode sparql-mode popup-kill-ring yasnippet-snippets pomidor uuidgen markdown-preview-mode polymode yatemplate wrap-region win-switch undo-tree tern-auto-complete stan-snippets solarized-theme snakemake-mode smartparens smart-mode-line-powerline-theme rainbow-mode org-gcal org-bullets org-autolist org-agenda-property org-ac markdown-mode magit js2-refactor image+ ht helm-tramp helm-flycheck gnuplot gitignore-mode git ggtags exec-path-from-shell ess-smart-underscore ess ensime dockerfile-mode docker company-tern company-shell company-quickhelp company-jedi company-irony-c-headers company-irony bash-completion autopair))))
 
 ;;; R modes
 (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
@@ -463,3 +452,15 @@
 (add-hook 'R-mode-hook 'git-gutter+-mode)
 (add-hook 'markdown-mode-hook 'git-gutter+-mode)
 (add-hook 'latex-mode-hook 'git-gutter+-mode)
+
+;; Irony
+(add-hook 'c++-mode-hook 'irony-mode)
+
+;; Doom modeline
+(require 'doom-modeline)
+(doom-modeline-init)
+
+(use-package doom-modeline
+      :ensure t
+      :defer t
+      :hook (after-init . doom-modeline-init))
